@@ -58,6 +58,7 @@ tasks:
       blt blt:telemetry:disable --no-interaction &&
       echo 'Establishing Settings' &&
       blt settings &&
+      [[ `drush @default.dev st` ]] && blt drupal:sync -n
       echo 'Logging Into Drupal' &&
       drush st &&
       echo "drush uli --uri=$PREVIEW_FULL_URL" &&
